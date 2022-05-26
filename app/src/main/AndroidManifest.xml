@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDebts">
         <activity
+            android:name=".modificarDebts"
+            android:exported="false" />
+        <activity
             android:name=".listadoDebts"
             android:exported="false" />
         <activity

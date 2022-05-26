@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         txtPersona = (EditText) findViewById(R.id.txtPersona);
         txtRazon = (EditText) findViewById(R.id.txtRazon);
         txtDinero = (EditText) findViewById(R.id.txtDinero);
@@ -30,7 +31,15 @@ public class MainActivity extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                guardar(txtPersona.getText().toString(), txtRazon.getText().toString(), txtDinero.getText().toString());
+                if(txtPersona.getText().toString().equals("") || txtDinero.getText().toString().equals("") || txtRazon.getText().toString().equals("")){
+                    Toast.makeText(MainActivity.this, "Tiene que llenar todos los campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    guardar(txtPersona.getText().toString(), txtRazon.getText().toString(), txtDinero.getText().toString());
+                    txtPersona.setText("");
+                    txtRazon.setText("");
+                    txtDinero.setText("");
+                }
+
             }
         });
         btnMostrar.setOnClickListener(new View.OnClickListener() {
